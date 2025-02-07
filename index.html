@@ -13,9 +13,16 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
 
   <style>
-    /* Define a altura do mapa */
+    /* Make sure html and body take up full height and remove default margins */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    /* Set the map div to fill the full viewport */
     #map {
-      height: 600px;
+      height: 100%;
+      width: 100%;
     }
   </style>
 </head>
@@ -28,7 +35,7 @@
 
   <script>
     // 1. Inicialização do mapa
-    var map = L.map('map').setView([20, 0], 1);
+    var map = L.map('map').setView([20, 0], 3);
 
     // 2. Adiciona a camada base (ex: OpenStreetMap)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -39,7 +46,6 @@
     var markers = L.markerClusterGroup();
 
     // 4. Dados dos pontos com coordenadas (exemplo com alguns pontos)
-    // OBSERVAÇÃO: Para cada ponto, você deve ter as propriedades: institution, city, country, url, lat e lng.
     var pontos = [
 	  {
 		institution: "African Research Health Institute",
